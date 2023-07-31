@@ -1,0 +1,9 @@
+
+dependencies {
+    implementation libs.springBootDataJpa
+    implementation libs.postgresql
+    implementation libs.springBootAmqp
+    implementation libs.springCloudConfigClient
+    implementation libs.springCloudConfigServer
+    implementation libs.springCloudStarterConfig
+}

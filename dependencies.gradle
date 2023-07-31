@@ -1,0 +1,47 @@
+ext {
+    /**
+     * Genel bağımlılıkların versiyonlarını belirlemesini yaptığımız kısım
+     * K:V olarak. Sol taraf aynı isimde olmak zorunda değil key olduğu için eşsiz olması fakat hatırlatması için benzer
+     * isim kullandık
+     */
+    versions = [
+            springBoot                 : "2.7.12",
+            lombok                     : "1.18.28",
+            mapstruct                  : "1.5.5.Final",
+            postgresql                 : "42.6.0",
+            swaggerApi                 : "1.6.15",
+            jwt                        : "4.4.0",
+            springCloud                : "3.1.8",
+            springCloudStarterBootstrap: "3.1.5"
+
+    ]
+    /**
+     * Bu kısımda bağımlılık listesi oluşturuyoruz. Key:Value
+     * 1: Bağımlılığa bir ad belirleme
+     * 2: İki nokta üst üste(:) koyma
+     * 3: Projenin group idsini yazın
+     * 4: Tekrar iki nokta(:)
+     * 5: Projenin artifact idsi
+     * 6: iki nokta üst üste
+     * 7: versiyon numarası veya yukarıda belirtilen versiyon keyleri çağırılır
+     */
+    libs = [
+            springBootWeb              : "org.springframework.boot:spring-boot-starter-web:$versions.springBoot",
+            springBootDataJpa          : "org.springframework.boot:spring-boot-starter-data-jpa:$versions.springBoot",
+            springBootValidation       : "org.springframework.boot:spring-boot-starter-validation:$versions.springBoot",
+            springBootAmqp             : "org.springframework.boot:spring-boot-starter-amqp:$versions.springBoot",
+            lombok                     : "org.projectlombok:lombok:$versions.lombok",
+            mapstruct                  : "org.mapstruct:mapstruct:$versions.mapstruct",
+            mapstructProcessor         : "org.mapstruct:mapstruct-processor:$versions.mapstruct",
+            swaggerApi                 : "org.springdoc:springdoc-openapi-ui:$versions.swaggerApi",
+            postgresql                 : "org.postgresql:postgresql:$versions.postgresql",
+            jwt                        : "com.auth0:java-jwt:$versions.jwt",
+            springCloudOpenFeign       : "org.springframework.cloud:spring-cloud-starter-openfeign:$versions.springCloud",
+            springCloudConfigServer    : "org.springframework.cloud:spring-cloud-config-server:$versions.springCloud",
+            springCloudStarterConfig   : "org.springframework.cloud:spring-cloud-starter-config:$versions.springCloud",
+            springCloudConfigClient    : "org.springframework.cloud:spring-cloud-config-client:$versions.springCloud",
+            springCloudStarterBootstrap: "org.springframework.cloud:spring-cloud-starter-bootstrap:$versions.springCloudStarterBootstrap"
+
+
+    ]
+}

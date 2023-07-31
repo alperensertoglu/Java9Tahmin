@@ -1,0 +1,18 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/Java9TahminDB
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+sehirservices:
+  secrets:
+    secret-key: ${JAVA9_SECRETKEY}
+    issuer: ${JAVA9_ISSUER}
+

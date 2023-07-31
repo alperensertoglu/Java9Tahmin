@@ -1,0 +1,95 @@
+/**
+ * root build.gradle file:
+ */
+plugins {
+    /**
+     * Buraya yazılan özellikler tüm diğer servislerde etkili olacak.
+     * Diğerlerinde hiç yazmasak bile geçerli olacaktır.
+     */
+    id 'java'
+    id 'org.springframework.boot' version '2.7.12'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'application'
+}
+
+group = 'com.alperensertoglu'
+version = 'v0.1'
+
+java {
+    sourceCompatibility = '19'
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    /**
+     * tüm projelere(sub+root) pluginleri atamak için
+     */
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'application'
+    apply plugin: 'java-library'
+    apply from: "${rootDir}/dependencies.gradle"
+}
+subprojects {
+    /**
+     * sadece sub
+     * Bütün alt projelerimde grup ve versiyon adı ile diğerözelliklerin aynı olması için
+     */
+    group = 'com.alperensertoglu'
+    version = 'v0.1'
+    sourceCompatibility = JavaVersion.VERSION_19
+    targetCompatibility = JavaVersion.VERSION_19
+}
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+    }
+    dependencies {
+        /**
+         * Bütün projeye yayılacak bağımlılıkları yazıyoruz.
+         * Yazarken libs içindekileri çekiyoruz.
+         * Bütün projeye entegre olacak
+         */
+        implementation libs.springBootWeb
+        compileOnly libs.lombok
+        annotationProcessor libs.lombok
+        implementation libs.mapstruct
+        annotationProcessor libs.mapstructProcessor
+        implementation libs.swaggerApi
+        implementation libs.jwt
+        implementation libs.springCloudOpenFeign
+        implementation libs.springBootValidation
+        implementation libs.springCloudConfigClient
+        implementation libs.springCloudStarterConfig
+        implementation libs.springCloudStarterBootstrap
+        implementation libs.springBootAmqp
+
+
+
+
+    }
+}
+
+/**
+ * AuthMicroService için gerekli olan postgresql ve springBootDataJpa bağımlılıklarını buradan veremeyiz!
+ * Buraya yazdıklarımız tüm sub projelere aktarılır. Halbuki bazı projelerde farklı veritabanları kullanılmış olabilir.
+ * 2 farklı veritabanı için DayaJpa kullanılmayabilirz. Mango için farklı, postgresql için farklı olabilir.
+ * Hepsini eklersek o da olmaz, gereksiz yere kullanılmayacak bağımlılığı direkt ekleyecek.
+ * Ayrıca her birini servislerde configure etmeni bekleyecek. Ancak bunlara gerek yok! Gidip sub build.gradle dosyasında
+ * çağırmak daha doğru olacaktır.
+ */
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigServer/Java9Tahmin.ConfigServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigServer/Java9Tahmin.ConfigServer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KullaniciServisi/Java9Tahmin.KullaniciServisi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/KullaniciServisi/Java9Tahmin.KullaniciServisi.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SehirServisi/Java9Tahmin.SehirServisi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SehirServisi/Java9Tahmin.SehirServisi.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SkorYonetimiServisi/Java9Tahmin.SkorYonetimiServisi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SkorYonetimiServisi/Java9Tahmin.SkorYonetimiServisi.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TahminYonetimServisi/Java9Tahmin.TahminYonetimServisi.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TahminYonetimServisi/Java9Tahmin.TahminYonetimServisi.main.iml" />
+    </modules>
+  </component>
+</project>
